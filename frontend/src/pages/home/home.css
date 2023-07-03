@@ -1,0 +1,43 @@
+.home-container {
+    margin: 30px;
+    margin-top: 80px;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-header {
+    color: #1e4a62;
+    font-size: 20px;
+    font-weight: 00;
+    margin-bottom: 0;
+    margin-left: 5px;
+}
+
+.list-recomendations {
+    color: #6f6f6f;
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.show-all {
+    margin-top: 10px !important;
+    display: flex;
+    margin-left: 40px !important;
+    margin-right: 40px !important;
+    color: #49A1AE!important;
+}
+
+@media (max-width: 768px) {
+    .home-container {
+        margin: 20px;
+        margin-top: 55px;
+    }
+
+    .list-header {
+        font-size: 18px;
+    }
+}

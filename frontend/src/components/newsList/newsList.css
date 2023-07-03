@@ -1,0 +1,19 @@
+.news-box {
+    margin-top: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    margin: 0px;
+    padding: 0px;
+}
+
+li {
+    list-style: none;
+}
+
+@media (max-width: 768px) {
+    .news-box {
+        margin-top: 10px;
+    }
+    
+}

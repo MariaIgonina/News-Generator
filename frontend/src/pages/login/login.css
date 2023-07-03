@@ -1,0 +1,48 @@
+.logo-login {
+    height: 150px;
+  }
+  
+  .form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .inputs-login {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  .label {
+    margin-bottom: 3px
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+  }
+
+  .signin-button {
+  background-color: #E2A439 !important;
+  height: 35px;
+  margin-right: 10px !important;
+}
+
+.login-button {
+  background-color: #49A1AE !important;
+  height: 35px;
+}
+
+.alert {
+  position: absolute;
+  bottom: 80px
+}
+
+.login-headers {
+  color:grey;
+  font-size: 20px;
+}

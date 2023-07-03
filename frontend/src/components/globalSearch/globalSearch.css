@@ -1,0 +1,87 @@
+.search-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #49A1AE;
+    z-index: 4;
+    overflow-y: auto;
+    padding-top: 0;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 65px;
+    margin-left: 17px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 245px;
+}
+
+.search-label {
+    color: white;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.search-inputs {
+    background-color:white !important;
+    height: 40px !important;
+    width: 245px;
+}
+
+.search-button {
+    background-color: #E4AF3C !important;
+    height: 40px;
+    color: white !important;
+    font-weight: 700 !important;
+    margin-top: 10px !important;
+  }
+
+  .check-search {
+    color:white !important;
+    font-size: 30px;
+    margin-top: 2px !important;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 75px;
+    right: 5px;
+    font-size: 20px;
+    color:white
+  }
+
+@media (max-width: 768px) {
+    .search-panel {
+        width: 100%;
+        height: 100vh;
+    }
+    
+    .search-form {
+        width: 245px;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 67px;
+        right: 30px;
+        font-size: 20px;
+        color:white
+      }
+}

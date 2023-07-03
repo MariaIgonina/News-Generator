@@ -1,0 +1,7 @@
+FROM node:latest
+
+RUN mkdir /usr/src/app && mkdir /usr/src/app/frontend
+
+WORKDIR /usr/src/app/frontend
+
+COPY . .
