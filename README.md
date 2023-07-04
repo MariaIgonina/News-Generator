@@ -41,7 +41,7 @@ This command will take you to the `/var/www/backend` folder.
 6. Copy the `.env.example` file and rename it to `.env` for the backend:
 `cp .env.example .env`
 
-and past here your keys:
+and paste here your keys:
 ```
 API_GUARDIAN_KEY="key"
 API_NEWSAPI_KEY="key"
@@ -75,9 +75,9 @@ Then run this command to start all the commands automaticly (they will fetch the
 while [ true ]; do (php artisan schedule:run --verbose --no-interaction &); sleep 60; done
 ```
 
-9. Access the frontend container at `localhost:3000` for development.
+10. Access the frontend container at `localhost:3000` for development.
 
-10. Access the following links:
+11. Access the following links:
 
 - Backend: `localhost:8000`
 - Frontend: `localhost:3000`
