@@ -45,8 +45,9 @@ class UserController extends Controller
       ]);
 
       if (!auth()->attempt($credentials)) {
-          return response()->json(['error' => 'Invalid credentials'], 401);
+        return response()->json(['message' => 'Invalid credentials'], 401);
       }
+      
 
       $token = auth()->attempt($credentials);
 
@@ -92,17 +93,17 @@ class UserController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\JsonResponse
    */
-  public function delete(Request $request, $id)
+  public function delete(Request $request)
   {
-      $user = User::findOrFail($id);
+    $user = Auth::user();
 
-      if (auth()->user()->id !== $user->id) {
-          return response()->json(['error' => 'Unauthorized'], 401);
-      }
+    if (auth()->user()->id !== $user->id) {
+      return response()->json(['message' => 'Unauthorized'], 401);
+    }
 
-      $user->delete();
+    $user->delete();
 
-      return response()->json(['message' => 'Your account has been successfully deleted!']);
+    return response()->json(['message' => 'Your account has been successfully deleted!']);
   }
 
   /**

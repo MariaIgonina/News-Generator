@@ -34,7 +34,11 @@ export const deleteUser = createAsyncThunk(
   'auth/deleteUser', 
   async () => {
     try {
-      const response = await axios.delete('/api/auth/delete')
+      let headers = {};
+      if (localStorage.user != undefined) {
+        headers = {Authorization: `Bearer ${localStorage.getItem('user')}`}
+      }
+      const response = await axios.post('/api/auth/delete', null, {headers})
       return response.data;
     } catch (err) {
       throw err.response.data;
@@ -125,9 +129,9 @@ const authSlice = createSlice ({
       state.error = null
     })
     .addCase(deleteUser.fulfilled, (state, action) => {
-      state.status = 'resolved'
-      state.token = action.payload.access_token;
-      state.error = null
+      state.status = 'resolved';
+      state.token = null;
+      state.error = null;
     })
     .addCase(deleteUser.rejected, (state, action) => {
       state.status = 'rejected'

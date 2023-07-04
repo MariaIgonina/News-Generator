@@ -103,7 +103,7 @@ class ArticlesController extends Controller
     {   
         if (Auth::check()) {
             $user = Auth::user();
-            $userPreferences = Preferences::where('user_id', $user->id)->first();
+            $userPreferences = Preferences::where('user_id', $user->id)->orderBy('created_at', 'Desc')->first();
 
             if (!$userPreferences) return response()->json([]);
 

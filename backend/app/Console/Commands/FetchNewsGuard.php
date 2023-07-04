@@ -44,7 +44,7 @@ class FetchNewsGuard extends Command
                     'title' => $articleData['webTitle'],
                     'url' => $articleData['webUrl'],
                     'publishedAt' => trim(preg_replace("/T|Z/", ' ', $articleData['webPublicationDate'])),
-                    'content' => $articleData['fields']['bodyText'] ?? null,
+                    'content' => substr($articleData['fields']['bodyText'] ?? '', 0, 10000),
                     'source' => 'Guardian',
                 ]
             );

@@ -28,8 +28,8 @@ class FetchNewsNewsapi extends Command
     {
         $apiKey = config('parses.newsapi_key');
 
-        $apiUrl = "https://newsapi.org/v2/everything?domains=wsj.com&apiKey={$apiKey}";
-
+        $apiUrl = "https://newsapi.org/v2/everything?domains=wsj.com&apiKey={$apiKey}&pageSize=50";
+  
         $response = file_get_contents($apiUrl);
         // echo $response;
 

@@ -123,7 +123,7 @@ export default function GlobalSearch({ setSearchIsOpen }) {
 
     dispatch(newsSearch(newSearch));
     if (searchCheck.length === 0) {
-      alert('Sorry, but your search does not match any results. Please try again.')
+      // alert('Sorry, but your search does not match any results. Please try again.')
     }
     setSearchIsOpen(false)
   }

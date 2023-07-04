@@ -12,9 +12,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('fetch:news-guard')->everyFifteenMinutes();
-        $schedule->command('fetch-news-newsapi')->everyFifteenMinutes();
+        $schedule->command('fetch-news-guard')->everyFifteenMinutes();
         $schedule->command('fetch-news-nyt')->everyFifteenMinutes();
+        $schedule->command('fetch-news-newsapi')->everyFifteenMinutes();
     }
 
     /**

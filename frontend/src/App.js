@@ -6,11 +6,22 @@ import Home from './pages/home/home';
 import Navbar from './components/navbar/navbar';
 import NewPage from './pages/newPage/NewPage';
 import { useState } from 'react';
+import { setToken } from './store/authSlice';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 
 function App() {
 
   const [searchIsOpen, setSearchIsOpen] = useState(false);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if(localStorage.user) {
+      dispatch(setToken(localStorage.user))
+    }
+  }, [])
 
   return (
     <BrowserRouter>

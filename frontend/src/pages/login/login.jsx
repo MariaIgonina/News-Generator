@@ -52,10 +52,10 @@ export default function Login() {
     if (!isRegistered) {
       const registerResponse = await dispatch(registerUser(user));
       if (registerResponse.error) {
-        setAlert({ type: 'error', message: registerResponse.error.message }); ///////
+        const errorMessage = registerResponse.error.message.includes('1062 Duplicate entry') ? 'You already have an account, please log in!' : registerResponse.error.message
+        setAlert({ type: 'error', message: errorMessage });
       } else {
         setAlert({ type: 'success', message: 'Registration successful.' });
-        
         localStorage.setItem('user', registerResponse.payload.access_token);
         setTimeout(() => {
           setAlert({ type: '', message: '' });
@@ -65,7 +65,7 @@ export default function Login() {
     } else {
       const loginResponse = await dispatch(loginUser(user));
       if (loginResponse.error) {
-        setAlert({ type: 'error', message: loginResponse.error.message }); ///////
+        setAlert({ type: 'error', message: loginResponse.error.message });
       } else {
         localStorage.setItem('user', loginResponse.payload.access_token);
         navigate('/');
@@ -82,8 +82,7 @@ export default function Login() {
   const handleLogout = async () => {
     const logoutResponse = await dispatch(logoutUser());
     if (logoutResponse.error) {
-      const errorMessage = logoutResponse.error.message.length > 70 ? 'Server error' : logoutResponse.error.message
-      setAlert({ type: 'error', message: errorMessage }); ///////
+      setAlert({ type: 'error', message: logoutResponse.error.message });
     } else {
       localStorage.removeItem('user');
       dispatch(setToken(null));
@@ -94,7 +93,7 @@ export default function Login() {
   const handleDeleteAccount = async () => {
     const deleteResponse = await dispatch(deleteUser());
     if (deleteResponse.error) {
-      setAlert({ type: 'error', message: deleteResponse.error.message }); ///////
+      setAlert({ type: 'error', message: deleteResponse.error.message }); 
     } else {
       localStorage.removeItem('user');
       setAlert({ type: 'success', message: 'Account successfully deleted.' });
@@ -112,7 +111,6 @@ export default function Login() {
     return () => clearTimeout(timeout);
   }, [alert]);
   
-  useEffect(() => console.log(tokenCheck), [tokenCheck]);
   
   return (
     <div className='form-login'>
